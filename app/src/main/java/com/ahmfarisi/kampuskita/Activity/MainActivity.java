@@ -26,11 +26,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
     private RecyclerView rvKampus;
-
     private FloatingActionButton fabTambah;
-
     private ProgressBar pbKampus;
 
     private RecyclerView.Adapter adKampus;
@@ -57,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        retrieveKampus();
+    }
+
     public void retrieveKampus(){
         pbKampus.setVisibility(View.VISIBLE);
 
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ModelResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "gagal menghubungi server!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Gagal Menghubungi Server!", Toast.LENGTH_SHORT).show();
                 pbKampus.setVisibility(View.GONE);
             }
         });

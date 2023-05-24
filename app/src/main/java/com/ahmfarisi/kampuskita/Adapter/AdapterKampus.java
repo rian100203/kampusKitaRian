@@ -16,12 +16,11 @@ import java.util.List;
 
 public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> {
     private Context ctx;
+    private List<ModelKampus> listKampus;
 
-    private List<ModelKampus> listkampus;
-
-    public AdapterKampus(Context ctx, List<ModelKampus> listkampus) {
+    public AdapterKampus(Context ctx, List<ModelKampus> listKampus) {
         this.ctx = ctx;
-        this.listkampus = listkampus;
+        this.listKampus = listKampus;
     }
 
     @NonNull
@@ -33,7 +32,7 @@ public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> 
 
     @Override
     public void onBindViewHolder(@NonNull VHKampus holder, int position) {
-        ModelKampus MK = listkampus.get(position);
+        ModelKampus MK = listKampus.get(position);
         holder.tvId.setText(MK.getId());
         holder.tvNama.setText(MK.getNama());
         holder.tvKota.setText(MK.getKota());
@@ -42,7 +41,7 @@ public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> 
 
     @Override
     public int getItemCount() {
-        return listkampus.size();
+        return listKampus.size();
     }
 
     public class VHKampus extends RecyclerView.ViewHolder{
