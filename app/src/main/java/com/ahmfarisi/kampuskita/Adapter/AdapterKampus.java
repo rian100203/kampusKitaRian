@@ -1,7 +1,6 @@
 package com.ahmfarisi.kampuskita.Adapter;
 
 import android.content.Context;
-import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import java.util.List;
 
 public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> {
     private Context ctx;
+
     private List<ModelKampus> listkampus;
 
     public AdapterKampus(Context ctx, List<ModelKampus> listkampus) {
@@ -27,7 +27,7 @@ public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> 
     @NonNull
     @Override
     public VHKampus onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View varView = LayoutInflater.from(ctx).inflate(R.layout.list_item_kampus, parent,false);
+        View varView = LayoutInflater.from(ctx).inflate(R.layout.list_item_kampus, parent, false);
         return new VHKampus(varView);
     }
 
